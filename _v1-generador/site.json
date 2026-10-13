@@ -1,0 +1,150 @@
+{
+  "lang": "es-MX",
+  "custom_css": ".gallery img[src*=\"514266745\"]{object-position:50% 0}.gallery img[src*=\"516783180\"]{object-position:18% 50%}@media(max-width:639px){.stats .stat:last-child:nth-child(odd){grid-column:1/-1}}",
+  "brand": {
+    "name": "Rótulos Alaniz",
+    "logo": "",
+    "colors": {
+      "primary": "#e8bf5a",
+      "secondary": "#c28a2e",
+      "accent": "#e0489f",
+      "bg": "#04181e",
+      "text": "#f6f0e2"
+    },
+    "theme": "dark",
+    "font": "editorial",
+    "radius": "soft"
+  },
+  "seo": {
+    "title": "Rótulos Alaniz | Rótulos a mano, logotipos y murales",
+    "description": "Rótulos a pincel, logotipos, letras y murales para fachadas, persianas y bardas. 40 años de experiencia en publicidad comercial. Cotiza por WhatsApp.",
+    "keywords": ["rótulos a mano", "rótulos a pincel", "publicidad comercial", "murales", "logotipos pintados", "rotulación de fachadas", "letreros para negocios", "bardas publicitarias"],
+    "business_type": "LocalBusiness",
+    "area": "México"
+  },
+  "contact": {
+    "whatsapp": "5566150766",
+    "message": "Hola Rótulos Alaniz, quiero cotizar un rótulo o mural para mi negocio.",
+    "phone": "55 6615 0766",
+    "float_label": "¿Platicamos tu proyecto?",
+    "whatsapp_display": "55 6615 0766"
+  },
+  "header_cta": { "label": "Quiero mi rótulo", "href": "#contacto" },
+  "hero": {
+    "fx": "network",
+    "layout": "split",
+    "eyebrow": "Publicidad comercial · 40 años de oficio",
+    "title": "Tu negocio, pintado a mano *para que todos lo vean*",
+    "subtitle": "Letras, logotipos y murales a pincel para fachadas, persianas y bardas. Cuéntanos tu idea y te decimos cómo lograrla.",
+    "cta": { "label": "Estoy listo para cotizar", "href": "#contacto" },
+    "cta2": { "label": "Ver trabajos reales", "href": "#trabajos" },
+    "badges": ["40 años de experiencia", "Pintado a mano", "Cotización por WhatsApp"],
+    "chips": ["Rótulos a pincel", { "text": "Murales y logotipos", "icon": "spark" }, "Hecho a mano"],
+    "image": { "src": "img/527677104_24217149471302043_3335660378657568367_n.jpg", "alt": "Fachada de paletería y nevería con mural pintado a mano de helados, paletas y frutas" }
+  },
+  "sections": [
+    { "type": "marquee", "items": ["Rótulos a pincel", "Publicidad comercial", "Murales artísticos", "Logotipos pintados", "Letras y dibujos", "Fachadas y persianas", "Bardas publicitarias", "Espacios infantiles"] },
+    {
+      "type": "services", "id": "servicios", "nav": "Servicios", "eyebrow": "Lo que pintamos", "title": "Todo lo que tu negocio necesita *para destacar*",
+      "lead": "Del letrero de tu local al mural de tu espacio: elige un servicio o combínalos. Cada trabajo se pinta a mano.",
+      "link": "Quiero esto para mi negocio",
+      "items": [
+        { "icon": "tool", "title": "Rótulos a pincel", "text": "Letras y rótulos pintados a mano para que tu negocio se lea claro desde la calle y se recuerde.", "list": ["Fachadas y persianas", "Vitrinas, horarios y avisos", "Letras con carácter propio"], "wide": true },
+        { "icon": "gem", "title": "Logotipos pintados", "text": "Llevamos tu logotipo a la pared, la persiana o el letrero, fiel a tu marca." },
+        { "icon": "spark", "title": "Murales artísticos", "text": "Arte a gran formato para interiores y exteriores: de retratos a escenas llenas de color." },
+        { "icon": "building", "title": "Bardas publicitarias", "text": "Anuncia tu empresa, productos o servicios en bardas y muros con alto impacto visual." },
+        { "icon": "smile", "title": "Espacios infantiles y escolares", "text": "Murales temáticos para escuelas, bibliotecas, canchas y parques que inspiran a los pequeños." },
+        { "icon": "camera", "title": "Letras y dibujos para empresas", "text": "Listas de productos, ilustraciones y letras para dar identidad a tu comercio." }
+      ]
+    },
+    {
+      "type": "about", "id": "nosotros", "nav": "Nosotros", "eyebrow": "Quiénes somos", "title": "40 años de oficio *en cada trazo*",
+      "text": [
+        "En Rótulos Alaniz llevamos 40 años pintando letras, logotipos, murales y dibujos para empresas. Cada trabajo nace a mano, con pincel y paciencia, porque la publicidad que se siente hecha para ti se nota.",
+        "Desde la persiana de una farmacia hasta el mural de una escuela, el objetivo es el mismo: que tu negocio se vea profesional y la gente lo recuerde."
+      ],
+      "points": ["Letras, logotipos y murales pintados a mano", "40 años de experiencia en publicidad comercial", "Trato directo por WhatsApp, sin intermediarios", "Calificación de 4.2 en Google"],
+      "image": { "src": "img/514359553_24217148027968854_6689323403799101063_n.jpg", "alt": "Mural de rostro estilo Dalí pintado a mano en blanco y negro sobre pared de local" },
+      "badge": { "value": "40", "label": "Años de experiencia" },
+      "cta": { "label": "Cuéntanos tu idea", "href": "wa" }
+    },
+    {
+      "type": "gallery", "id": "trabajos", "nav": "Trabajos", "eyebrow": "Portafolio", "title": "Letreros, logotipos y fachadas *que se hacen notar*",
+      "lead": "Trabajos reales de rotulación comercial. Cada uno pintado a mano para su negocio.",
+      "images": [
+        { "src": "img/516783180_24023470267336632_4567341840225511274_n.jpg", "alt": "Rótulo de GarageMEX Blindajes pintado a mano en blanco sobre fondo negro", "caption": "GarageMEX Blindajes" },
+        { "src": "img/489022352_9524789110964655_7248214755341451720_n.jpg", "alt": "Persiana de farmacia rotulada a mano con letras azules y cápsulas de colores", "caption": "Farmacia · persiana" },
+        { "src": "img/516880128_24023482467335412_2800294965903313266_n.jpg", "alt": "Logotipo Doña Blanca en caligrafía negra pintado sobre persiana metálica", "caption": "Doña Blanca · logotipo" },
+        { "src": "img/514266745_24217149554635368_5178152120129637796_n.jpg", "alt": "Barda blanca rotulada con el logotipo y el nombre IUSA Iztapalapa", "caption": "IUSA Iztapalapa · barda" },
+        { "src": "img/731158369_1018993503863888_5290786736295141904_n.jpg", "alt": "Barda publicitaria con marcas de refacciones y electrodomésticos pintadas a mano", "caption": "Publicidad en barda" },
+        { "src": "img/488754738_9524789244297975_8323059219903430455_n.jpg", "alt": "Interior de dulcería con logotipo y mural de ondas de colores pintado a mano", "caption": "Dulce Corazón · dulcería" }
+      ]
+    },
+    {
+      "type": "process", "id": "proceso", "nav": "Proceso", "eyebrow": "Cómo trabajamos", "title": "De tu idea a la pared en *4 pasos*",
+      "steps": [
+        { "title": "Nos cuentas tu idea", "text": "Por WhatsApp: qué negocio tienes, qué quieres pintar y dónde. Puedes mandarnos fotos del lugar." },
+        { "title": "Revisamos y cotizamos", "text": "Analizamos tu proyecto y te damos una cotización clara." },
+        { "title": "Pintamos a mano", "text": "Con pincel, oficio y cuidado en cada letra y cada detalle." },
+        { "title": "Luce tu negocio", "text": "Entregamos el trabajo listo para atraer miradas y clientes." }
+      ]
+    },
+    {
+      "type": "stats", "items": [
+        { "value": 40, "suffix": "+", "label": "Años de experiencia pintando a mano" },
+        { "value": 4.2, "suffix": " ★", "label": "Calificación en Google" },
+        { "value": 15, "suffix": "+", "label": "Trabajos reales en este portafolio" }
+      ]
+    },
+    {
+      "type": "gallery", "id": "murales", "nav": "Murales", "eyebrow": "Arte a gran formato", "title": "Murales que *transforman espacios*",
+      "lead": "De arte clásico a mundos infantiles: paredes que cuentan una historia.",
+      "images": [
+        { "src": "img/526654857_24217148221302168_4228300002922000125_n.jpg", "alt": "Mural interpretación del Guernica de Picasso pintado a mano en azul sobre pared blanca", "caption": "Mural artístico" },
+        { "src": "img/489273703_9524789250964641_7151481883747186643_n.jpg", "alt": "Mural de barco pirata en un parque infantil con resbaladillas y juegos", "caption": "Parque infantil" },
+        { "src": "img/488659182_9524789240964642_8667122641035330958_n.jpg", "alt": "Mural con frase motivacional y dibujos en una pared blanca de oficina", "caption": "Mural con mensaje" },
+        { "src": "img/488948976_9524789180964648_4877149878598343961_n.jpg", "alt": "Mural infantil de biblioteca con castillo, arcoíris y globos aerostáticos", "caption": "Biblioteca escolar" },
+        { "src": "img/489368638_9524789120964654_1496204224714072126_n.jpg", "alt": "Mural de peces en blanco y negro con detalle de escamas pintado a mano", "caption": "Arte en blanco y negro" },
+        { "src": "img/526596906_24217147901302200_6079304685814293923_n.jpg", "alt": "Silueta de bailarina de flamenco pintada a mano en un restaurante", "caption": "Silueta en restaurante" },
+        { "src": "img/728527873_1018993387197233_7763022622792242579_n.jpg", "alt": "Muro de cancha deportiva con murales de deportistas pintados a mano", "caption": "Cancha deportiva" }
+      ]
+    },
+    {
+      "type": "faq", "id": "preguntas", "eyebrow": "Dudas frecuentes", "title": "Resolvemos lo que *te estás preguntando*",
+      "items": [
+        { "q": "¿Qué tipo de trabajos realizan?", "a": "Rótulos y letras a pincel, logotipos pintados, murales, dibujos y publicidad comercial en fachadas, persianas, bardas e interiores." },
+        { "q": "¿Cuántos años de experiencia tienen?", "a": "Contamos con 40 años de experiencia en publicidad comercial, pintando letras, logotipos, murales y dibujos para empresas." },
+        { "q": "¿Cómo pido mi cotización?", "a": "Escríbenos por WhatsApp al 55 6615 0766 y cuéntanos qué quieres pintar. Si puedes, envíanos fotos del lugar para revisar tu proyecto." },
+        { "q": "¿Puedo pedir mi logotipo o una imagen de referencia?", "a": "Sí. Mándanos tu logotipo o una referencia y platicamos cómo llevarlo a la pared, la persiana o el letrero." },
+        { "q": "¿Trabajan en mi zona?", "a": "Escríbenos con la ubicación de tu negocio y te confirmamos si podemos atender tu proyecto." }
+      ]
+    },
+    {
+      "type": "cta", "title": "¿Listo para que tu negocio *se vea y se recuerde*?",
+      "lead": "Cuéntanos tu idea por WhatsApp y empezamos a darle forma hoy mismo.",
+      "cta": { "label": "Sí, quiero mi rótulo ahora", "href": "wa" },
+      "cta2": { "label": "Prefiero llamar", "href": "tel:+525566150766" }
+    },
+    {
+      "type": "contact", "id": "contacto", "nav": "Contacto", "eyebrow": "Hablemos", "title": "Cuéntanos qué quieres pintar *y lo hacemos realidad*",
+      "lead": "Déjanos tus datos y abrimos una conversación por WhatsApp con tu mensaje listo.",
+      "form": {
+        "title": "Tu idea, hoy mismo",
+        "button": "Enviar mi idea por WhatsApp",
+        "note": "Se abrirá WhatsApp con tu mensaje listo. Sin compromiso.",
+        "service_label": "¿Qué quieres pintar?",
+        "message_label": "Cuéntanos tu idea",
+        "placeholder": "Ej: Quiero rotular la persiana de mi local con mi logotipo y horarios…"
+      }
+    }
+  ],
+  "footer": {
+    "text": "Rótulos a pincel y publicidad comercial. 40 años pintando negocios con oficio.",
+    "social": [
+      { "name": "facebook", "href": "https://www.facebook.com/share/1KHwYAwBrh/" }
+    ],
+    "links": [
+      { "label": "Reseñas en Google", "href": "https://share.google/2y0CAc2k2COZe2cB" }
+    ]
+  }
+}
