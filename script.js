@@ -4,8 +4,8 @@
    por cuadro y reparte el trabajo a cada módulo. Nada usa listeners de scroll.
    Módulos: loader · header · scroll suave · titulares · reveal · palabras ·
             parallax · cinta · partículas · hero · contadores · servicios ·
-            galería fijada + visor · configurador · proceso · FAQ · formulario ·
-            magnético · salpicadura · WhatsApp flotante.
+            galería fijada + visor · galería con filtros · configurador · proceso ·
+            FAQ · formulario · mapa · magnético · salpicadura · WhatsApp flotante.
    Todo respeta prefers-reduced-motion y pausa lo que no está en pantalla.
    ========================================================================== */
 (() => {
@@ -450,7 +450,7 @@
       const idx = clamp(Math.round(p * (cards.length - 2)) + 1, 1, cards.length - 1);
       if (idx !== lastIdx) { lastIdx = idx; cur.textContent = String(idx).padStart(2, '0'); }
     });
-    lightbox($$('.wcard__btn', sec));
+    lightbox($$('.wcard__btn, .gal__btn'));                      // un solo visor para la galería fijada y la galería con filtros
   }
 
   function lightbox(btns) {
@@ -458,24 +458,54 @@
     if (!lb || !lb.showModal || !btns.length) return;
     const img = $('#lbImg'), cap = $('#lbCap');
     let i = 0;
-    const show = (n) => {
+    const show = (n, step = 1) => {
       i = (n + btns.length) % btns.length;
+      for (let k = 0; k < btns.length && !btns[i].offsetParent; k++) i = (i + step + btns.length) % btns.length;   // salta las fotos ocultas por el filtro
       const b = btns[i], im = $('img', b);
       img.src = im.currentSrc || im.src; img.alt = im.alt;
-      cap.textContent = $('.wcard__cap strong', b).textContent;
+      cap.textContent = $('.wcard__cap strong, .gal__cap strong', b).textContent;
       img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
     };
     btns.forEach((b, k) => b.addEventListener('click', () => { show(k); lb.showModal(); }));
     $('.lb__close', lb).addEventListener('click', () => lb.close());
-    $('.lb__nav--prev', lb).addEventListener('click', () => show(i - 1));
+    $('.lb__nav--prev', lb).addEventListener('click', () => show(i - 1, -1));
     $('.lb__nav--next', lb).addEventListener('click', () => show(i + 1));
     lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
     lb.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1, -1); }
       else if (e.key === ' ' || e.key === 'PageDown' || e.key === 'PageUp') e.preventDefault();
     });
     ['wheel', 'touchmove'].forEach((ev) => lb.addEventListener(ev, (e) => e.preventDefault(), { passive: false }));
+  }
+
+  /* ---------- 13b · Galería con filtros por tipo de trabajo -------------- */
+  function gallery() {
+    const sec = $('#galeria'); if (!sec) return;
+    const grid = $('.gal__grid', sec), info = $('#galInfo');
+    const chips = $$('.gal__chip', sec), items = $$('.gal__item', sec);
+    chips.forEach((c) => {                                       // el contador de cada filtro sale de las fotos reales
+      const n = $('sup', c);
+      if (n) n.textContent = items.filter((li) => c.dataset.filter === 'todo' || li.dataset.cat === c.dataset.filter).length;
+    });
+    const apply = (f) => {
+      let k = 0;
+      items.forEach((li) => {
+        const show = f === 'todo' || li.dataset.cat === f;
+        li.hidden = !show;
+        if (show) li.style.setProperty('--k', Math.min(k++, 14));
+      });
+      chips.forEach((c) => {
+        const on = c.dataset.filter === f;
+        c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on);
+        if (on) info.textContent = c.dataset.info;
+      });
+      if (reduce) return;
+      grid.classList.remove('is-swap'); void grid.offsetWidth; grid.classList.add('is-swap');
+    };
+    chips.forEach((c) => c.addEventListener('click', () => apply(c.dataset.filter)));
+    // un pequeño desfase por columna para que las fotos entren en ola al hacer scroll
+    items.forEach((li, i) => li.style.setProperty('--d', ((i % 4) * 0.07).toFixed(2) + 's'));
   }
 
   /* ---------- 14 · Configurador: tu nombre sobre la pared ---------------- */
@@ -611,6 +641,16 @@
     });
   }
 
+  /* ---------- 17b · Mapa: se activa al tocarlo para no atrapar el scroll - */
+  function map() {
+    const box = $('#mapBox'); if (!box) return;
+    const hint = $('.map__hint', box);
+    if (hint && fine) hint.textContent = 'Haz clic en el mapa para moverlo';
+    box.addEventListener('click', () => box.classList.add('is-live'));
+    if (fine) box.addEventListener('pointerleave', () => box.classList.remove('is-live'));
+    document.addEventListener('pointerdown', (e) => { if (!box.contains(e.target)) box.classList.remove('is-live'); });
+  }
+
   /* ---------- 18 · Botón magnético --------------------------------------- */
   function magnetic() {
     if (!fine || reduce) return;
@@ -673,7 +713,7 @@
     words(); parallax(); bands(); hero(); counters();
     particles($('#heroFx'), { count: 74, link: 118 });
     particles($('#ctaFx'), { count: 46, link: 0, speed: 0.28 });
-    services(); work(); studio(); flow(); faq(); contactForm(); magnetic(); splash();
+    services(); work(); gallery(); studio(); flow(); faq(); contactForm(); map(); magnetic(); splash();
     requestAnimationFrame(loop);
     loader().then(() => { reveal(); waFloat(); });
   }

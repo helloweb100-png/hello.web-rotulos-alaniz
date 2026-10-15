@@ -167,6 +167,7 @@ h2 { font-size: clamp(2.15rem, 5.8vw, 4.3rem); font-weight: 700; line-height: 1.
 .nav.is-open li:nth-child(1) a { transition-delay: .25s, 0s; } .nav.is-open li:nth-child(2) a { transition-delay: .3s, 0s; }
 .nav.is-open li:nth-child(3) a { transition-delay: .35s, 0s; } .nav.is-open li:nth-child(4) a { transition-delay: .4s, 0s; }
 .nav.is-open li:nth-child(5) a { transition-delay: .45s, 0s; } .nav.is-open li:nth-child(6) a { transition-delay: .5s, 0s; }
+.nav.is-open li:nth-child(7) a { transition-delay: .55s, 0s; }
 .nav__n { font: 600 .8rem/1 var(--font-d); color: var(--gold); letter-spacing: .08em; }
 .nav a:hover, .nav a[aria-current="true"] { color: var(--gold); }
 .nav__foot { display: grid; gap: .3rem; color: var(--muted); }
@@ -370,6 +371,54 @@ h2 { font-size: clamp(2.15rem, 5.8vw, 4.3rem); font-weight: 700; line-height: 1.
 .lb__nav--next { right: 1rem; }
 @media (max-width: 640px) { .lb__nav { top: auto; bottom: 1.2rem; margin: 0; } .lb__nav--prev { left: calc(50% - 64px); } .lb__nav--next { right: calc(50% - 64px); } }
 
+/* ---------- 14b · Galería: más trabajos con filtros ---------------------- */
+.gallery { position: relative; isolation: isolate; background: var(--ink); padding: clamp(4.5rem, 10vw, 8rem) 0 clamp(4.5rem, 10vw, 7.5rem); }
+.gallery::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(60% 38% at 6% 30%, rgba(13, 87, 102, .5), transparent 70%), radial-gradient(45% 30% at 94% 70%, rgba(232, 191, 90, .09), transparent 70%); }
+.gal__head { display: grid; gap: 1rem 3rem; align-items: end; }
+.gal__head .lead { margin-top: 0; }
+@media (min-width: 960px) { .gal__head { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } .gal__head .lead { padding-bottom: .6rem; } }
+
+.gal__bar { display: grid; gap: 1.1rem; margin-top: clamp(2rem, 5vw, 3.2rem); }
+.gal__filters { display: flex; flex-wrap: wrap; gap: .55rem; }
+.gal__chip { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: .55rem; min-height: 46px; padding: .5rem 1.15rem; border-radius: 99px; font: 600 .95rem/1 var(--font-d); color: var(--muted); border: 1px solid var(--line-2); transition: color .4s, border-color .4s, transform .5s var(--ease); }
+.gal__chip:focus-visible { border-radius: 99px; }
+.gal__chip::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(120deg, var(--gold-3), var(--gold) 45%, var(--gold-2)); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease); }
+.gal__chip sup { position: static; font: 700 .72rem/1 var(--font-d); color: var(--gold); font-variant-numeric: tabular-nums; transition: color .4s; }
+.gal__chip:hover { color: var(--text); border-color: rgba(232, 191, 90, .6); }
+.gal__chip:active { transform: scale(.97); }
+.gal__chip.is-on { color: var(--on-gold); border-color: var(--gold); }
+.gal__chip.is-on::before { transform: scaleX(1); }
+.gal__chip.is-on sup { color: var(--on-gold); }
+.gal__info { max-width: 62ch; min-height: 3.3em; color: var(--muted); }
+
+.gal__grid { --g: clamp(.6rem, 1.6vw, 1.1rem); column-count: 2; column-gap: var(--g); margin-top: clamp(1rem, 3vw, 1.6rem); }
+@media (min-width: 720px) { .gal__grid { column-count: 3; } }
+@media (min-width: 1100px) { .gal__grid { column-count: 4; } }
+.gal__item { break-inside: avoid; margin-bottom: var(--g); }
+.gal__item[hidden] { display: none; }
+.gal__btn { position: relative; display: block; width: 100%; overflow: hidden; border-radius: 18px; border: 1px solid var(--line); background: var(--ink-2); text-align: left; cursor: zoom-in; transition: border-color .5s, transform .7s var(--ease), box-shadow .7s var(--ease); }
+.gal__btn:focus-visible { border-radius: 18px; }
+.gal__btn img { width: 100%; height: auto; transition: transform 1.2s var(--ease); }
+.gal__cap { position: absolute; inset: auto 0 0 0; display: grid; gap: .1rem; padding: 3rem .85rem .75rem; background: linear-gradient(180deg, transparent, rgba(2, 12, 15, .9)); }
+.gal__cap strong { font: 600 .95rem/1.2 var(--font-d); letter-spacing: -.01em; }
+.gal__cap span { font-size: .78rem; color: var(--gold-3); }
+.gal__btn::after { content: ""; position: absolute; top: .65rem; right: .65rem; width: 38px; height: 38px; border-radius: 50%; background: var(--gold) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 17 17 7M8 7h9v9' fill='none' stroke='%232a1d03' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / 18px no-repeat; opacity: 0; scale: .5; pointer-events: none; transition: opacity .35s, scale .5s var(--ease); }
+@media (hover: hover) {
+  .gal__cap { opacity: 0; transform: translateY(10px); transition: opacity .45s, transform .6s var(--ease); }
+  .gal__btn:hover, .gal__btn:focus-visible { border-color: rgba(232, 191, 90, .7); transform: translateY(-4px); box-shadow: 0 26px 40px -24px rgba(0, 0, 0, .85); }
+  .gal__btn:hover img { transform: scale(1.06); }
+  .gal__btn:hover .gal__cap, .gal__btn:focus-visible .gal__cap { opacity: 1; transform: none; }
+  .gal__btn:hover::after, .gal__btn:focus-visible::after { opacity: 1; scale: 1; }
+}
+/* al cambiar de filtro, las fotos que quedan entran una tras otra */
+.gal__grid.is-swap .gal__item:not([hidden]) .gal__btn { animation: galSwap .8s var(--ease) backwards; animation-delay: calc(var(--k, 0) * 40ms); }
+@keyframes galSwap { from { opacity: 0; transform: translate3d(0, 22px, 0) scale(.96); } }
+
+.gal__end { display: grid; justify-items: start; gap: 1.4rem; margin-top: clamp(2.2rem, 5vw, 3.6rem); padding: clamp(1.4rem, 3.4vw, 2.6rem); border-radius: var(--r-card); border: 1px dashed rgba(232, 191, 90, .55); background: radial-gradient(90% 120% at 100% 100%, rgba(232, 191, 90, .14), transparent 65%); }
+.gal__end p { font: 700 clamp(1.5rem, 3.2vw, 2.4rem)/1.08 var(--font-d); letter-spacing: -.03em; text-wrap: balance; }
+.gal__end-btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+@media (min-width: 860px) { .gal__end { grid-template-columns: minmax(0, 1fr) auto; align-items: center; } }
+
 /* ---------- 15 · Estudio: diseña tu rótulo ------------------------------ */
 .studio__grid { display: grid; gap: clamp(1.6rem, 4vw, 2.4rem); }
 .studio__copy h2 { max-width: 14ch; }
@@ -504,6 +553,19 @@ h2 { font-size: clamp(2.15rem, 5.8vw, 4.3rem); font-weight: 700; line-height: 1.
 .form__note.is-bad { color: #ffb4b4; }
 .form__note.is-ok { color: var(--gold-3); }
 @media (min-width: 960px) { .contact__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2.4rem, 6vw, 5.5rem); } }
+
+/* ---------- 19b · Ubicación (Google Maps) --------------------------------- */
+.visit { display: grid; gap: clamp(1.8rem, 4vw, 2.6rem); align-items: center; margin-top: clamp(3.5rem, 8vw, 6rem); padding-top: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line); }
+.visit__t { font: 700 clamp(1.9rem, 4.2vw, 3.2rem)/1.06 var(--font-d); letter-spacing: -.025em; text-wrap: balance; }
+.visit__btns { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.map { position: relative; isolation: isolate; height: clamp(300px, 56vw, 440px); overflow: hidden; border-radius: var(--r-card); border: 1px solid var(--line-2); background: var(--ink-2); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .85); }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* el mapa no "atrapa" el scroll de la página: se activa al tocarlo (script.js) */
+.js .map:not(.is-live) iframe { pointer-events: none; }
+.map__hint { display: none; }
+.js .map__hint { position: absolute; left: 50%; top: 1rem; z-index: 1; translate: -50% 0; display: inline-flex; padding: .6rem 1.05rem; white-space: nowrap; border-radius: 99px; font: 600 .82rem/1 var(--font-d); color: var(--text); background: rgba(4, 24, 30, .84); border: 1px solid var(--line-2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); pointer-events: none; transition: opacity .4s, translate .5s var(--ease); }
+.map.is-live .map__hint { opacity: 0; translate: -50% -10px; }
+@media (min-width: 960px) { .visit { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2.4rem, 6vw, 5.5rem); } .map { height: 460px; } }
 
 /* ---------- 20 · Footer ------------------------------------------------- */
 .footer { position: relative; overflow: hidden; background: var(--ink); border-top: 1px solid var(--line); padding-top: clamp(3rem, 7vw, 5rem); }
